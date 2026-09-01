@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Patinhas de Assis Hospital Veterinário 24h em São Bernardo do Campo</title>
-  <meta name="description" content="Patinhas de Assis Hospital Veterinário 24h em São Bernardo do Campo. Emergência, cirurgias, internação, exames no local e especialidade em felinos. Seu pet feliz e saudável é nosso compromisso." />
+  <meta name="description" content="Patinhas de Assis Hospital Veterinário 24h em São Bernardo do Campo. Emergência, cirurgias, internação, exames no local e estrutura hospitalar completa. Seu pet feliz e saudável é nosso compromisso." />
   <link rel="icon" type="image/webp" href="logo.webp" />
   <link rel="apple-touch-icon" href="logo.webp" />
   <link rel="preload" as="image" href="logo.webp" fetchpriority="high" type="image/webp" />
@@ -28,21 +28,28 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --marca: #1B9DC4;
-      --marca-escuro: #147592;
-      --marca-claro: #43B7D8;
-      --marca-suave: #E7F5FA;
-      --marca-borda: #B9E1EF;
-      --prata: #71717A;
-      --gradiente: linear-gradient(135deg, #1B9DC4 0%, #147592 100%);
+      /* paleta oficial do site patinhasdeassisvet.com.br */
+      --marca: #0BA5C7;
+      --marca-escuro: #0A7E9B;
+      --marca-claro: #69CADB;
+      --marca-suave: #E6F6FA;
+      --marca-borda: #BFE7F0;
+      --azul: #1863DC;
+      --prata: #8A8A8E;
+      --gradiente: linear-gradient(135deg, #0BA5C7 0%, #1863DC 100%);
       --verde-wpp: #25D366;
       --verde-wpp-hover: #1DA851;
-      --texto: #17181A;
-      --cinza: #6b7280;
-      --cinza-claro: #f5f5f6;
-      --borda: #e5e7eb;
+      --texto: #212121;
+      --cinza: #5E5E5E;
+      --cinza-claro: #f4f4f4;
+      --borda: #ebebeb;
       --branco: #fff;
-      --vermelho: #E11D28;
+      --destaque: #EF5B14;
+      /* azuis extraidos da logo: "Patinhas" e "de Assis" */
+      --logo-patinhas: #2E9EC6;
+      --logo-assis: #7FC9E1;
+      --sombra: 0 6px 24px rgba(17,24,39,0.07);
+      --sombra-forte: 0 12px 34px rgba(17,24,39,0.12);
     }
 
     html {
@@ -195,7 +202,7 @@
       position: relative;
       z-index: 2;
       flex: 1;
-      max-width: 640px;
+      max-width: 740px;
       width: 100%;
       margin: 0 auto;
       display: flex;
@@ -236,11 +243,24 @@
       color: var(--texto);
       letter-spacing: -1.2px;
       line-height: 1.14;
+      white-space: nowrap;
       margin-bottom: 12px;
     }
 
-    .hero h1 .h1-destaque { color: var(--vermelho); }
-    .hero h1 .h1-azul { color: var(--marca); }
+    /* dois azuis da logo: o de "Patinhas" e o de "de Assis" */
+    .hero h1 .h1-azul { color: var(--logo-patinhas); }
+
+    /* "24h" destacado em pilula com o gradiente da marca */
+    .hero h1 .h1-destaque {
+      display: inline-block;
+      color: #fff;
+      background: var(--gradiente);
+      border-radius: 14px;
+      padding: 2px 14px 6px;
+      line-height: 1;
+      box-shadow: 0 6px 18px rgba(11,165,199,0.35);
+    }
+
     .hero h1 .h1-linha1 { white-space: nowrap; }
 
     .br-mobile { display: none; }
@@ -356,8 +376,8 @@
     .review-img-card img {
       width: 100%;
       height: auto;
-      border-radius: 20px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+      border-radius: 16px;
+      box-shadow: var(--sombra-forte);
       display: block;
       pointer-events: none;
     }
@@ -429,9 +449,10 @@
     .depoi-features { display: flex; flex-direction: column; gap: 18px; }
     .depoi-feature { display: flex; align-items: flex-start; gap: 14px; }
     .depoi-feature-icone {
-      width: 40px; height: 40px;
+      width: 44px; height: 44px;
       background: var(--marca-suave);
-      border-radius: 11px;
+      border: 1px solid var(--marca-borda);
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
       flex-shrink: 0;
     }
@@ -442,6 +463,10 @@
     }
     .depoi-feature h4 { font-size: 15px; font-weight: 700; line-height: 1.35; }
     .depoi-feature p { font-size: 13px; color: var(--cinza); line-height: 1.5; margin-top: 3px; }
+
+    /* faixas alternadas, no ritmo do site do cliente */
+    .faixa-cinza  { background: var(--cinza-claro); }
+    .faixa-branca { background: var(--branco); }
 
     /* SECOES GERAIS */
     .sec {
@@ -454,10 +479,10 @@
       display: inline-block;
       font-size: 11px;
       font-weight: 700;
-      color: var(--prata);
+      color: var(--marca-escuro);
       text-transform: uppercase;
-      letter-spacing: 2.5px;
-      margin-bottom: 12px;
+      letter-spacing: 2.2px;
+      margin-bottom: 14px;
     }
 
     .sec-titulo {
@@ -482,27 +507,28 @@
     .servicos-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
+      gap: 20px;
     }
 
     .servico-card {
-      background: var(--cinza-claro);
-      border-radius: 20px;
-      padding: 26px 22px;
-      transition: all 0.2s;
-      border: 1px solid transparent;
+      background: var(--branco);
+      border-radius: 16px;
+      padding: 30px 26px;
+      transition: all 0.25s ease;
+      border: 1px solid var(--borda);
+      box-shadow: var(--sombra);
     }
 
     .servico-card:hover {
-      background: var(--marca-suave);
       border-color: var(--marca-borda);
-      transform: translateY(-3px);
+      box-shadow: var(--sombra-forte);
+      transform: translateY(-4px);
     }
 
     .servico-icone {
-      width: 44px; height: 44px;
-      background: var(--marca);
-      border-radius: 10px;
+      width: 52px; height: 52px;
+      background: var(--gradiente);
+      border-radius: 16px;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -532,23 +558,25 @@
       align-items: center;
     }
 
-    .motivos { display: flex; flex-direction: column; gap: 8px; }
+    .motivos { display: flex; flex-direction: column; gap: 14px; }
 
     .motivo {
       display: flex;
       align-items: flex-start;
       gap: 16px;
-      padding: 18px 20px;
+      padding: 22px 24px;
       border-radius: 16px;
-      border: 1px solid transparent;
-      transition: all 0.2s;
+      background: var(--branco);
+      border: 1px solid var(--borda);
+      box-shadow: var(--sombra);
+      transition: all 0.25s ease;
     }
 
-    .motivo:hover { background: var(--marca-suave); border-color: var(--marca-borda); }
+    .motivo:hover { border-color: var(--marca-borda); box-shadow: var(--sombra-forte); transform: translateY(-3px); }
 
     .motivo-num {
-      width: 36px; height: 36px;
-      border-radius: 10px;
+      width: 40px; height: 40px;
+      border-radius: 12px;
       background: var(--gradiente);
       color: white;
       font-size: 14px;
@@ -581,8 +609,8 @@
       color: #ffffff;
     }
 
-    /* frase de destaque no verde do WhatsApp */
-    .sec-cta h2 .cta-vermelho { color: var(--verde-wpp); }
+    /* frase de destaque em azul escuro */
+    .sec-cta h2 .cta-vermelho { color: #0A2E52; }
 
     .sec-cta .cta-tag {
       display: block;
@@ -615,7 +643,7 @@
 
     .info-box {
       background: white;
-      border-radius: 20px;
+      border-radius: 16px;
       padding: 28px;
       margin-top: 28px;
       display: flex;
@@ -628,7 +656,7 @@
     .info-linha .ico { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
     .info-linha strong { color: var(--texto); display: block; }
 
-    .mapa { border-radius: 24px; overflow: hidden; height: 340px; box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+    .mapa { border-radius: 16px; overflow: hidden; height: 340px; box-shadow: var(--sombra-forte); }
     .mapa iframe { width: 100%; height: 100%; border: none; display: block; }
 
     /* FOOTER */
@@ -684,7 +712,7 @@
       .hero-content { max-width: 100%; padding: 20px 20px 28px; }
       .hero-logo { width: 84px; height: 84px; margin-bottom: 12px; }
       .hero-small { font-size: 13px; margin-bottom: 8px; }
-      .hero h1 { font-size: 36px; letter-spacing: -1.2px; margin-bottom: 10px; }
+      .hero h1 { font-size: 36px; letter-spacing: -1.2px; margin-bottom: 10px; white-space: normal; }
       .hero h1 .h1-linha1 { white-space: normal; }
       .hero-sub { font-size: 14px; margin-bottom: 20px; }
       .hero-btns { max-width: 100%; }
@@ -826,7 +854,7 @@
     <div class="depoi-grid">
       <div class="depoi-conteudo">
         <span class="sec-tag">Depoimentos reais</span>
-        <h2 class="sec-titulo depoi-titulo">Por que São Bernardo<br class="br-mobile" />do Campo <span>confia no<br class="br-mobile" />Patinhas de Assis?</span></h2>
+        <h2 class="sec-titulo depoi-titulo">Por que São Bernardo<br />do Campo <span>confia no<br />Patinhas de Assis?</span></h2>
         <p class="depoi-sub">Veja o que os tutores dizem sobre o atendimento humanizado e a estrutura hospitalar 24 horas do Patinhas de Assis.</p>
         <div class="depoi-features">
           <div class="depoi-feature">
@@ -840,11 +868,11 @@
           </div>
           <div class="depoi-feature">
             <div class="depoi-feature-icone">
-              <svg viewBox="0 0 24 24"><path d="M4 5l2.5 3.5V15a5.5 5.5 0 0 0 11 0V8.5L20 5l-3.5 1.5h-9z"/><path d="M9.5 12h.01"/><path d="M14.5 12h.01"/></svg>
+              <svg viewBox="0 0 24 24"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 12v3a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="9.5" r="2"/></svg>
             </div>
             <div>
-              <h4>Especialidade em felinos</h4>
-              <p>Atendimento mais calmo e personalizado, com veterinário especialista em gatos.</p>
+              <h4>Diversas especialidades</h4>
+              <p>Equipe com veterinários de diferentes áreas, do atendimento clínico aos casos mais complexos.</p>
             </div>
           </div>
           <div class="depoi-feature">
@@ -905,6 +933,7 @@
 </div>
 
 <!-- SERVICOS -->
+<div class="faixa-cinza">
 <div class="sec">
   <span class="sec-tag">O que oferecemos</span>
   <h2 class="sec-titulo">Competência técnica, <span>disponibilidade, dedicação</span></h2>
@@ -940,10 +969,10 @@
     </div>
     <div class="servico-card">
       <div class="servico-icone">
-        <svg viewBox="0 0 24 24"><path d="M4 5l2.5 3.5V15a5.5 5.5 0 0 0 11 0V8.5L20 5l-3.5 1.5h-9z"/><path d="M9.5 12h.01"/><path d="M14.5 12h.01"/></svg>
+        <svg viewBox="0 0 24 24"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 12v3a5 5 0 0 0 10 0v-2"/><circle cx="20" cy="9.5" r="2"/></svg>
       </div>
-      <h3>Especialidade em felinos</h3>
-      <p>Espaço exclusivo para gatos, com ambiente tranquilo e veterinário especializado. Cuidado sob medida para cada felino.</p>
+      <h3>Diversas especialidades</h3>
+      <p>Atendimento clínico e especializado em várias áreas, com o profissional certo para cada caso e para cada fase da vida do seu pet.</p>
     </div>
     <div class="servico-card">
       <div class="servico-icone">
@@ -954,9 +983,10 @@
     </div>
   </div>
 </div>
+</div>
 
 <!-- POR QUE -->
-<div style="background:var(--cinza-claro); padding: 1px 0;">
+<div class="faixa-branca">
   <div class="sec-porque">
     <div>
       <span class="sec-tag">Diferencial</span>
@@ -967,8 +997,8 @@
       <div class="motivo">
         <div class="motivo-num">01</div>
         <div>
-          <h4>Especialidade em felinos</h4>
-          <p>Veterinário especialista em gatos, oferecendo atendimento mais calmo e personalizado para cada felino.</p>
+          <h4>Hospital completo em um só lugar</h4>
+          <p>Emergência, internação, cirurgias e exames no mesmo endereço, sem precisar levar seu pet para outro lugar.</p>
         </div>
       </div>
       <div class="motivo">
