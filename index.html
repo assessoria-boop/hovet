@@ -250,23 +250,8 @@
     /* dois azuis da logo: o de "Patinhas" e o de "de Assis" */
     .hero h1 .h1-azul { color: var(--logo-patinhas); }
 
-    /* "24h" no azul forte da marca, sublinhado por um traco ciano */
-    .hero h1 .h1-destaque {
-      position: relative;
-      display: inline-block;
-      color: var(--azul);
-      padding: 0 2px;
-    }
-
-    .hero h1 .h1-destaque::after {
-      content: '';
-      position: absolute;
-      left: 0; right: 0;
-      bottom: 0.02em;
-      height: 0.14em;
-      border-radius: 999px;
-      background: linear-gradient(90deg, var(--marca) 0%, var(--azul) 100%);
-    }
+    /* "24h" no azul forte da marca */
+    .hero h1 .h1-destaque { color: var(--azul); }
 
     .hero h1 .h1-l2 { white-space: nowrap; }
 
