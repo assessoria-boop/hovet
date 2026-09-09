@@ -250,15 +250,22 @@
     /* dois azuis da logo: o de "Patinhas" e o de "de Assis" */
     .hero h1 .h1-azul { color: var(--logo-patinhas); }
 
-    /* "24h" destacado em pilula vermelha */
+    /* "24h" no azul forte da marca, sublinhado por um traco ciano */
     .hero h1 .h1-destaque {
+      position: relative;
       display: inline-block;
-      color: #fff;
-      background: linear-gradient(135deg, #E11D28 0%, #B3121C 100%);
-      border-radius: 14px;
-      padding: 2px 14px 6px;
-      line-height: 1;
-      box-shadow: 0 6px 18px rgba(225,29,40,0.35);
+      color: var(--azul);
+      padding: 0 2px;
+    }
+
+    .hero h1 .h1-destaque::after {
+      content: '';
+      position: absolute;
+      left: 0; right: 0;
+      bottom: 0.02em;
+      height: 0.14em;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--marca) 0%, var(--azul) 100%);
     }
 
     .hero h1 .h1-l2 { white-space: nowrap; }
@@ -730,7 +737,6 @@
       .hero-logo { width: 84px; height: 84px; margin-bottom: 12px; }
       .hero-small { font-size: 13px; margin-bottom: 8px; }
       .hero h1 { font-size: clamp(31px, 9.2vw, 36px); letter-spacing: -1.2px; margin-bottom: 10px; white-space: normal; }
-      .hero h1 .h1-destaque { padding: 2px 11px 5px; border-radius: 12px; }
       .hero-sub { font-size: 14px; margin-bottom: 20px; }
       .hero-btns { max-width: 100%; }
 
