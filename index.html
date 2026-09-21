@@ -381,17 +381,7 @@
     .dc h3 { display: flex; flex-direction: column; font-size: 21px; font-weight: 500; letter-spacing: -0.02em; line-height: 28px; color: var(--pa-ink); }
     .dc-row { display: flex; align-items: flex-end; justify-content: space-between; gap: 16px; }
     .dc-row p { flex: 1; min-width: 0; font-size: 13px; line-height: 21px; color: var(--pa-body); }
-    .dc-seta {
-      width: 36px; height: 36px;
-      display: flex; align-items: center; justify-content: center;
-      background: var(--pa-pill); border-radius: 8px;
-      color: var(--pa-brand);
-      flex-shrink: 0;
-      transition: background .3s, color .3s;
-    }
-    .dc-seta svg { width: 14px; height: 14px; stroke-width: 2.4; }
     .dc:hover { transform: translateY(-4px); box-shadow: 0 16px 36px #0D34401A; }
-    .dc:hover .dc-seta { background: var(--pa-brand); color: #fff; }
 
     /* ── SERVICOS ── */
     .sec-serv { display: flex; flex-direction: column; align-items: center; padding-bottom: 64px; background: var(--pa-soft); }
@@ -443,86 +433,68 @@
     .sr-ic svg { width: 16px; height: 16px; }
     .sr-nome { font-size: 30px; font-weight: 500; letter-spacing: -0.045em; line-height: 36px; color: var(--pa-ink); transition: color .35s var(--ease); }
     .sr-desc { grid-column: 2; font-size: 13px; line-height: 20px; color: var(--pa-body); }
-    .sr-btn {
-      width: 92px; height: 38px;
-      display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-      background: var(--pa-readmore); border-radius: 999px;
-      font-size: 12px; font-weight: 600; line-height: 14px; color: var(--pa-brand);
-      transition: background .3s, color .3s, box-shadow .3s;
-    }
-    /* estado aberto = a linha em destaque da prancheta (nome ciano e botao escuro) */
+    /* estado aberto = a linha em destaque (nome ciano) */
     .sr.aberto .sr-nome { color: var(--pa-brand); }
-    .sr.aberto .sr-btn { background: var(--pa-brand); color: #fff; box-shadow: 0 8px 20px #0A7E9B40; }
 
     /* ── CARDS CAES E GATOS ── */
     .sec-pets { display: flex; flex-direction: column; gap: 14px; padding: 12px 16px 0; background: #fff; }
-    .pc { position: relative; height: 460px; border-radius: 12px; overflow: clip; isolation: isolate; transition: transform .35s var(--ease), box-shadow .35s var(--ease); }
-    .pc--caes {
-      background: linear-gradient(135deg, #0A7E9B 0%, #3DB6D0 55%, #A6DCE8 100%);
-      background: linear-gradient(in oklab 135deg, oklab(55% -0.074 -0.066) 0%, oklab(71.2% -0.089 -0.062) 55%, oklab(86.3% -0.050 -0.030) 100%);
+    /* card com foto redonda no alto e etiqueta + titulo abaixo */
+    .pc {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 26px;
+      padding: 96px 24px 40px;
+      border-radius: 12px;
+      overflow: clip;
+      isolation: isolate;
+      text-align: center;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease);
     }
-    .pc--gatos {
-      background: linear-gradient(135deg, #69CADB 0%, #2F8FE0 55%, #1863DC 100%);
-      background: linear-gradient(in oklab 135deg, oklab(78.6% -0.081 -0.048) 0%, oklab(62.6% -0.064 -0.130) 55%, oklab(53.1% -0.034 -0.196) 100%);
+    /* bloco da foto: a palavra gigante fica centralizada atras do circulo */
+    .pc-topo { position: relative; display: flex; justify-content: center; width: 100%; isolation: isolate; }
+    .pc-foto {
+      position: relative;
+      width: 240px;
+      aspect-ratio: 1;
+      flex-shrink: 0;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 6px solid var(--pa-border);
+      box-shadow: 0 18px 40px #0D344033;
     }
-    .pc-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; border-radius: 12px; transition: transform 1s var(--ease); }
+    .pc-img { display: block; width: 100%; height: 100%; object-fit: cover; transition: transform 1s var(--ease); }
+    .pc--caes .pc-img { object-position: 50% 30%; }
+    .pc-texto { position: relative; display: flex; flex-direction: column; align-items: center; gap: 14px; }
     .pc-gigante {
       position: absolute;
-      top: -44px;
-      right: -20px;
-      font-size: 130px;
+      left: 50%;
+      top: 0;
+      z-index: -1;
+      transform: translate(-50%, -46%);
+      white-space: nowrap;
+      padding: 0 .12em;
+      font-size: 150px;
       font-weight: 400;
       letter-spacing: -0.075em;
-      line-height: 130px;
-      background: linear-gradient(180deg, rgba(255,255,255,.9) 45%, rgba(255,255,255,0) 75%);
-      background: linear-gradient(in oklab 180deg, oklab(100% 0 0 / 90%) 45%, oklab(100% 0 0 / 0%) 75%);
+      line-height: 1;
+      background: linear-gradient(180deg, #0A7E9B 30%, rgba(10,126,155,0) 88%);
+      background: linear-gradient(in oklab 180deg, oklab(55% -0.074 -0.066) 30%, oklab(55% -0.074 -0.066 / 0%) 88%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
       pointer-events: none;
     }
-    .pc--gatos .pc-gigante { right: -24px; }
-    .pc-vidro {
-      position: absolute;
-      left: 6px; right: 6px; bottom: 6px;
-      height: 160px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 20px 20px 20px 22px;
-      border: 1px solid #FFFFFF40;
-      border-radius: 10px;
-      transition: transform .35s var(--ease);
-    }
-    .pc--caes .pc-vidro {
-      background: linear-gradient(90deg, rgba(7,95,118,.5) 0%, rgba(78,183,206,.42) 55%, rgba(196,232,239,.5) 100%);
-      background: linear-gradient(in oklab 90deg, oklab(45.1% -0.060 -0.055 / 50%) 0%, oklab(76.2% -0.061 -0.044 / 42%) 55%, oklab(91% -0.029 -0.020 / 50%) 100%);
-    }
-    .pc--gatos .pc-vidro {
-      background: linear-gradient(90deg, rgba(24,99,220,.45) 0%, rgba(110,175,225,.42) 55%, rgba(196,222,240,.5) 100%);
-      background: linear-gradient(in oklab 90deg, oklab(53.1% -0.034 -0.196 / 45%) 0%, oklab(74.8% -0.041 -0.086 / 42%) 55%, oklab(88.8% -0.018 -0.037 / 50%) 100%);
-    }
     .pc-tag {
-      align-self: flex-start;
       display: flex; align-items: center; gap: 6px;
       padding: 6px 12px;
-      border: 1px solid #FFFFFFBF; border-radius: 999px;
-      font-size: 11px; font-weight: 500; line-height: 13px; color: #fff;
+      border: 1px solid var(--pa-muted); border-radius: 999px;
+      font-size: 11px; font-weight: 500; line-height: 13px; color: var(--pa-muted);
     }
     .pc-tag svg { width: 11px; height: 11px; }
-    .pc-baixo { display: flex; align-items: flex-end; justify-content: space-between; }
-    .pc-h3 { display: flex; flex-direction: column; font-size: 22px; font-weight: 500; letter-spacing: -0.03em; line-height: 28px; color: #fff; }
-    .pc-mais {
-      position: absolute; right: 20px; bottom: 22px;
-      display: flex; align-items: center; gap: 6px;
-      font-size: 12px; font-weight: 600; line-height: 14px; color: #fff;
-    }
-    .pc-mais svg { width: 12px; height: 12px; stroke-width: 2.2; transition: transform .3s var(--ease); }
-    .pc:hover { box-shadow: 0 18px 40px #0D344026; }
-    .pc:hover .pc-img { transform: scale(1.04); }
-    .pc:hover .pc-vidro { transform: translateY(-3px); }
-    .pc-mais:hover svg { transform: translateX(4px); }
+    .pc-h3 { display: flex; flex-direction: column; font-size: 22px; font-weight: 500; letter-spacing: -0.03em; line-height: 28px; color: var(--pa-ink); }
+    .pc:hover .pc-img { transform: scale(1.06); }
 
     /* ── CTA FINAL ── */
     .sec-cta { padding: 110px 16px 0; }
@@ -729,8 +701,6 @@
       .dc h3 { line-height: 32px; }
       .dc-row { flex-direction: column; align-items: flex-start; gap: 22px; }
       .dc-row p { flex: none; width: 201px; font-size: 10px; line-height: 22px; }
-      .dc-seta { width: 32px; height: 32px; border-radius: 6px; }
-      .dc-seta svg { width: 13px; height: 13px; }
 
       /* servicos */
       .sec-serv { padding-bottom: 111px; }
@@ -767,7 +737,6 @@
       .serv-lista { width: 878px; max-width: calc(100% - 64px); }
       .sr { display: flex; align-items: center; height: 147px; padding: 0; }
       .sr-info { margin-right: auto; }
-      .sr-btn { margin-left: 24px; }
       /* no desktop a foto abre na lateral e o texto desliza para a direita */
       .sr-midia { width: 0; height: 133px; flex-shrink: 0; transition: width .55s var(--ease), margin .55s var(--ease), outline-color .3s; }
       .sr-midia img { width: 188px; height: 133px; }
@@ -776,26 +745,15 @@
       .sr-ic { grid-row: 1 / span 2; align-self: start; padding-top: 10px; }
       .sr-nome { font-size: 48px; line-height: 52px; }
       .sr-desc { font-size: 11px; line-height: 14px; }
-      .sr-btn { width: 110px; height: 44px; font-size: 10px; line-height: 12px; }
 
       /* cards caes e gatos */
       .sec-pets { flex-direction: row; gap: 16px; padding: 12px 15px 0; }
-      .pc { flex: 1 1 0; height: 602px; }
-      .pc-gigante, .pc--gatos .pc-gigante {
-        top: -86px;
-        right: -139px;
-        font-size: 240px;
-        line-height: 240px;
-        background: linear-gradient(180deg, rgba(255,255,255,.9) 45%, rgba(255,255,255,0) 72%);
-        background: linear-gradient(in oklab 180deg, oklab(100% 0 0 / 90%) 45%, oklab(100% 0 0 / 0%) 72%);
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
-      .pc-vidro { left: 7px; right: 7px; bottom: 7px; height: 196px; padding: 30px 32px 32px 38px; }
-      .pc-tag { padding: 6px 14px; font-size: 9px; line-height: 11px; }
+      .pc { flex: 1 1 0; gap: 34px; padding: 140px 40px 64px; }
+      .pc-foto { width: 320px; border-width: 8px; }
+      .pc-gigante { font-size: 240px; }
+      .pc-tag { padding: 7px 16px; font-size: 12px; line-height: 14px; }
       .pc-tag svg { width: 10px; height: 10px; }
       .pc-h3 { font-size: 32px; letter-spacing: -0.035em; line-height: 44px; }
-      .pc-mais { position: static; gap: 8px; padding-bottom: 8px; font-size: 10px; font-weight: 500; line-height: 12px; }
 
       /* cta final */
       .sec-cta { padding: 130px 70px 0; }
@@ -830,7 +788,7 @@
       .dc-row p { width: auto; }
       .pc-h3 { font-size: 26px; line-height: 36px; }
     }
-    .pc-mais, .rod-chegar, .sr-btn { white-space: nowrap; }
+    .rod-chegar { white-space: nowrap; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
@@ -976,7 +934,6 @@
           <h3><span>Cirurgias e</span><span>Centro Cirúrgico</span></h3>
           <div class="dc-row">
             <p>Totalmente equipado para cirurgias de rotina e procedimentos complexos, com pós-operatório completo.</p>
-            <a class="dc-seta" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp aria-label="Saiba mais sobre cirurgias pelo WhatsApp"><svg class="i"><use href="#i-seta"/></svg></a>
           </div>
         </div>
       </div>
@@ -987,9 +944,6 @@
         <span class="dc-tag">Raio-X e ultrassom</span>
         <div class="dc-main">
           <h3><span>Exames</span><span>no local</span></h3>
-          <div class="dc-row">
-            <a class="dc-seta" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp aria-label="Saiba mais sobre exames pelo WhatsApp"><svg class="i"><use href="#i-seta"/></svg></a>
-          </div>
         </div>
       </div>
     </article>
@@ -999,9 +953,6 @@
         <span class="dc-tag">Prevenção</span>
         <div class="dc-main">
           <h3><span>Consultas e</span><span>vacinação</span></h3>
-          <div class="dc-row">
-            <a class="dc-seta" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp aria-label="Saiba mais sobre consultas pelo WhatsApp"><svg class="i"><use href="#i-seta"/></svg></a>
-          </div>
         </div>
       </div>
     </article>
@@ -1028,16 +979,14 @@
         <span class="sr-nome">Consultas</span>
         <span class="sr-desc">Atendimento clínico completo, check-ups preventivos e vacinação<span class="only-d"> para todas as fases da vida</span>.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
-      <span class="sr-midia"><img src="img/servico-emergencia.webp" width="714" height="600" alt="Cão em atendimento de emergência" loading="lazy" decoding="async" /></span>
+      <span class="sr-midia"><img class="foco-topo" src="img/servico-emergencia-atendimento.webp" width="900" height="615" alt="Veterinários prestando atendimento de emergência a um cão" loading="lazy" decoding="async" /></span>
       <div class="sr-info">
         <span class="sr-ic"><svg class="i"><use href="#i-raio"/></svg></span>
         <span class="sr-nome">Emergência 24h</span>
         <span class="sr-desc">Emergência não avisa, o Patinhas de Assis nunca fecha.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
       <span class="sr-midia"><img src="img/destaque-cirurgia.webp" width="760" height="950" alt="Veterinária realizando cirurgia" loading="lazy" decoding="async" /></span>
@@ -1046,7 +995,6 @@
         <span class="sr-nome">Cirurgias</span>
         <span class="sr-desc">Centro cirúrgico moderno, com suporte anestésico e pós-operatório completo.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
       <span class="sr-midia"><img class="foco-topo" src="img/card-caes.webp" width="1000" height="1000" alt="Pug em recuperação no colo da veterinária" loading="lazy" decoding="async" /></span>
@@ -1055,7 +1003,6 @@
         <span class="sr-nome">Internação 24h</span>
         <span class="sr-desc">Espaço confortável e seguro para a recuperação, com monitoramento constante.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
     <div class="sr rv">
       <span class="sr-midia"><img class="foco-baixo" src="img/destaque-consultas.webp" width="760" height="950" alt="Exame de ultrassom em um gato" loading="lazy" decoding="async" /></span>
@@ -1064,7 +1011,6 @@
         <span class="sr-nome">Especialidades</span>
         <span class="sr-desc">Atendimento especializado em várias áreas, com o profissional certo para cada caso.</span>
       </div>
-      <a class="sr-btn" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais</a>
     </div>
   </div>
 </section>
@@ -1072,25 +1018,23 @@
 <!-- CARDS CAES E GATOS -->
 <section class="sec-pets">
   <article class="pc pc--caes rv">
-    <img class="pc-img" src="img/card-caes.webp" width="1000" height="1000" alt="Pug no colo da veterinária" loading="lazy" decoding="async" />
-    <span class="pc-gigante" aria-hidden="true">cães</span>
-    <div class="pc-vidro">
+    <div class="pc-topo">
+      <span class="pc-gigante" aria-hidden="true">cães</span>
+      <div class="pc-foto"><img class="pc-img" src="img/card-caes.webp" width="1000" height="1000" alt="Pug no colo da veterinária" loading="lazy" decoding="async" /></div>
+    </div>
+    <div class="pc-texto">
       <span class="pc-tag"><svg class="i"><use href="#i-tag"/></svg>Internação 24h</span>
-      <div class="pc-baixo">
-        <h3 class="pc-h3"><span>Monitoramento constante</span><span>na recuperação</span></h3>
-        <a class="pc-mais" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais <svg class="i"><use href="#i-seta"/></svg></a>
-      </div>
+      <h3 class="pc-h3"><span>Monitoramento constante</span><span>na recuperação</span></h3>
     </div>
   </article>
   <article class="pc pc--gatos rv" style="--d:.12s">
-    <img class="pc-img" src="img/card-gatos.webp" width="1000" height="1000" alt="Gato siamês" loading="lazy" decoding="async" />
-    <span class="pc-gigante" aria-hidden="true">gatos</span>
-    <div class="pc-vidro">
+    <div class="pc-topo">
+      <span class="pc-gigante" aria-hidden="true">gatos</span>
+      <div class="pc-foto"><img class="pc-img" src="img/card-gatos.webp" width="1000" height="1000" alt="Gato siamês" loading="lazy" decoding="async" /></div>
+    </div>
+    <div class="pc-texto">
       <span class="pc-tag"><svg class="i"><use href="#i-tag"/></svg>Disponibilidade 24/7</span>
-      <div class="pc-baixo">
-        <h3 class="pc-h3"><span>Hospital completo</span><span>em um só lugar</span></h3>
-        <a class="pc-mais" href="https://wa.me/5511917717030?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." target="_blank" rel="noopener" data-wpp>Saiba mais <svg class="i"><use href="#i-seta"/></svg></a>
-      </div>
+      <h3 class="pc-h3"><span>Hospital completo</span><span>em um só lugar</span></h3>
     </div>
   </article>
 </section>
@@ -1383,7 +1327,7 @@
       sr.addEventListener('mouseenter', function () { if (comMouse.matches) sr.classList.add('aberto'); });
       sr.addEventListener('mouseleave', function () { if (comMouse.matches) sr.classList.remove('aberto'); });
       sr.addEventListener('click', function (e) {
-        if (comMouse.matches || e.target.closest('.sr-btn')) return;
+        if (comMouse.matches) return;
         var abrir = !sr.classList.contains('aberto');
         linhas.forEach(function (l) { l.classList.remove('aberto'); });
         if (abrir) sr.classList.add('aberto');
