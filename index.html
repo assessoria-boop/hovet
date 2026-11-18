@@ -914,6 +914,10 @@
     @keyframes h24-feixe { 0% { background-position: 100% 0; } 22% { background-position: 0 0; } 100% { background-position: 0 0; } }
     @keyframes h24-pulso { 0%, 6%, 18%, 100% { transform: none; filter: none; } 11% { transform: translateY(-4px) scale(1.05); filter: drop-shadow(0 0 12px rgba(255,255,255,.6)); } }
     @media (prefers-reduced-motion: reduce) { .hero-h1 .h24 { animation: none; } .hero-h1 .h24::after { display: none; } }
+    /* todos os botoes no verde do WhatsApp (pedido de 18/11/2026) */
+    .btn-marca, .cta-btn { background: var(--wpp); color: #fff; box-shadow: 0 10px 26px #25D36659; }
+    .btn-marca:hover, .cta-btn:hover { box-shadow: 0 16px 34px #25D36680; }
+    .cta-btn svg { color: #fff; }
   </style>
 </head>
 <body>
