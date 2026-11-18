@@ -1,0 +1,193 @@
+<!-- HERO -->
+<header class="hero" id="inicio">
+  <div class="hero-palco">
+    <div class="hero-arco"></div>
+    <picture>
+      <source media="(min-width:1024px)" srcset="img/hero-cao-1600.webp?v=1" width="1600" height="905" />
+      <img class="hero-cao" src="img/hero-cao-1100.webp?v=1" width="1100" height="622" alt="Golden retriever" fetchpriority="high" decoding="async" />
+    </picture>
+
+    <div class="nav-wrap">
+      <nav class="nav" aria-label="Navegação principal">
+        <div class="logo">
+          <span class="logo-ic"><img src="img/logo-{{SLUG}}-96.webp?v=1" width="96" height="96" alt="Logo da {{NOME}} {{TIPO24}}" /></span>
+          <span class="logo-nome"><span>{{NOMECURTO}}</span><span>{{TIPO24}}</span></span>
+        </div>
+        <div class="nav-menu">
+          <a href="#inicio" class="ativo">Início</a>
+          <a href="#servicos">Serviços</a>
+          <a href="#avaliacoes">Avaliações</a>
+          <a href="#contato">Contato</a>
+        </div>
+        <div class="nav-acoes-d">
+          <a class="nav-chat" href="{{WPP}}" target="_blank" rel="noopener" data-wpp aria-label="Falar no WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a>
+          <a class="btn-wpp nav-btn" href="{{WPP}}" target="_blank" rel="noopener" data-wpp data-abrindo="Abrindo o WhatsApp"><span class="lbl">Entre em contato</span></a>
+        </div>
+        <div class="nav-acoes-m">
+          <a class="nav-circ nav-circ--wpp" href="{{WPP}}" target="_blank" rel="noopener" data-wpp aria-label="Falar no WhatsApp"><svg class="i"><use href="#i-chat"/></svg></a>
+          <button class="nav-circ nav-circ--menu" id="btnMenu" type="button" aria-label="Abrir menu" aria-expanded="false" aria-controls="menuM"><svg class="i"><use href="#i-menu"/></svg></button>
+        </div>
+      </nav>
+      <div class="menu-m" id="menuM" hidden>
+        <a href="#inicio" class="ativo">Início</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#avaliacoes">Avaliações</a>
+        <a href="#contato">Contato</a>
+      </div>
+    </div>
+
+    <div class="hero-texto">
+      <h1 class="hero-h1">
+        <span class="l1">{{H1A}}</span>
+        <span class="l2">{{H1L2}}</span>
+        <span class="l3">{{H1C}}</span>
+      </h1>
+      <h2 class="hero-sub">{{SUB}}</h2>
+      <h3 class="hero-apoio">{{APOIO}}</h3>
+      <a class="btn-wpp hero-cta" href="{{WPP}}" target="_blank" rel="noopener" data-wpp>
+        <span class="lbl">SEJA ATENDIDO AGORA</span>
+        <svg class="i-wpp"><use href="#i-wpp"/></svg>
+      </a>
+    </div>
+  </div>
+</header>
+
+<!-- HERO CARDS -->
+<div class="hero-cards">
+{{HC}}
+</div>
+
+<!-- AVALIACOES -->
+<section class="sec-car sec-aval" id="avaliacoes" data-carrossel>
+  <div class="car-cab">
+    <div class="car-tag rv">depoimentos reais</div>
+    <div class="car-dir">
+      <h2 class="car-h2 rv" style="--d:.08s"><span class="c">{{CIDADE}}</span><span>confia {{NA}} {{NOMECURTO}}</span></h2>
+      <p class="car-p rv" style="--d:.16s">{{AVALP}}</p>
+    </div>
+  </div>
+  <div class="car-track">
+{{AVAL}}
+  </div>
+  <div class="car-prog"><span></span></div>
+  <div class="cta-linha">
+    <a class="btn-marca" href="{{WPP}}" target="_blank" rel="noopener" data-wpp>
+      <span class="lbl">FALAR COM VETERINÁRIO AGORA</span>
+      <svg class="i-wpp"><use href="#i-wpp"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- SERVICOS -->
+<section class="sec-serv" id="servicos">
+  <div class="serv-titulo">
+    <div class="serv-palco">
+      <div class="serv-gigante rv">serviços</div>
+{{PILLS}}
+    </div>
+  </div>
+  <p class="serv-sub rv"><span>Cuidado completo para o seu pet,</span> <span>tudo em um só lugar</span></p>
+  <div class="serv-lista" id="servLista">
+{{SERV}}
+  </div>
+  <div class="cta-linha">
+    <a class="btn-marca" href="{{WPP}}" target="_blank" rel="noopener" data-wpp>
+      <span class="lbl">ATENDIMENTO RÁPIDO AGORA</span>
+      <svg class="i-wpp"><use href="#i-wpp"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- CARDS CAES E GATOS -->
+<section class="sec-pets">
+  <article class="pc pc--caes rv">
+    <div class="pc-topo">
+      <span class="pc-gigante" aria-hidden="true">cães</span>
+      <div class="pc-foto"><img class="pc-img" src="img/card-caes-400.webp?v=1" srcset="img/card-caes-400.webp?v=1 400w, img/card-caes.webp?v=1 640w" sizes="(min-width:1024px) 300px, 204px" width="640" height="640" alt="Cão pug no colo de uma veterinária" loading="lazy" decoding="async" /></div>
+    </div>
+    <span class="pc-tag"><svg class="i"><use href="#i-tag"/></svg>{{PC1}}</span>
+    <h3 class="pc-h3"><span>{{PC2}}</span><span>{{PC3}}</span></h3>
+  </article>
+  <article class="pc pc--gatos rv" style="--d:.12s">
+    <div class="pc-topo">
+      <span class="pc-gigante" aria-hidden="true">gatos</span>
+      <div class="pc-foto"><img class="pc-img" src="img/card-gatos-400.webp?v=1" srcset="img/card-gatos-400.webp?v=1 400w, img/card-gatos.webp?v=1 640w" sizes="(min-width:1024px) 300px, 204px" width="640" height="640" alt="Gato siamês" loading="lazy" decoding="async" /></div>
+    </div>
+    <span class="pc-tag"><svg class="i"><use href="#i-tag"/></svg>{{PC4}}</span>
+    <h3 class="pc-h3"><span>{{PC5}}</span><span>{{PC6}}</span></h3>
+  </article>
+</section>
+
+<!-- ETAPAS -->
+<section class="sec-car sec-etapas" data-carrossel>
+  <div class="car-cab">
+    <div class="car-tag rv">{{ETTAG}}</div>
+    <div class="car-dir">
+      <h2 class="car-h2 rv" style="--d:.08s"><span class="c">{{ETH2A}}</span><span>{{ETH2B}}</span></h2>
+      <p class="car-p rv" style="--d:.16s">{{ETP}}</p>
+    </div>
+  </div>
+  <div class="car-track">
+{{ETAPAS}}
+  </div>
+  <div class="car-prog"><span></span></div>
+  <div class="cta-linha">
+    <a class="btn-marca" href="{{WPP}}" target="_blank" rel="noopener" data-wpp>
+      <span class="lbl">SEJA ATENDIDO AGORA</span>
+      <svg class="i-wpp"><use href="#i-wpp"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="sec-faq" id="faq">
+  <div class="faq-cab">
+    <div class="car-tag rv">dúvidas frequentes</div>
+    <h2 class="faq-h2 rv" style="--d:.08s"><span class="c">O que saber</span><span>antes de chegar</span></h2>
+  </div>
+  <div class="faq-lista" id="faqLista">
+{{FAQ}}
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="sec-cta" id="contato">
+  <div class="cta-card rv">
+    <div class="cta-mapa">
+      <iframe data-src="{{MAPA}}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" title="{{MAPATIT}}"></iframe>
+    </div>
+    <div class="cta-tag">contato</div>
+    <div class="cta-conteudo">
+      <h2 class="cta-h2"><span>A saúde do seu pet</span><span>não pode esperar.</span></h2>
+      <p class="cta-p">{{CTAP}}</p>
+      <a class="btn-wpp cta-btn" href="{{WPP}}" target="_blank" rel="noopener" data-wpp>
+        <span class="lbl">ATENDIMENTO IMEDIATO</span>
+        <svg class="i-wpp"><use href="#i-wpp"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- RODAPE -->
+<footer class="rodape">
+  <div class="rod-in">
+    <div class="rod-l1">
+      <div class="rod-logo">
+        <span class="ic"><img src="img/logo-{{SLUG}}-96.webp?v=1" width="96" height="96" alt="" loading="lazy" /></span>
+        {{NOME}}
+      </div>
+    </div>
+    <div class="rod-l2">
+      <div class="rod-copy">
+        <span>© 2026 {{NOME}}. Todos os direitos reservados. {{ENDERECO}}.</span>
+        <span class="only-d">{{TIPO24}} em {{CIDADE}}.</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- BOTAO FLUTUANTE -->
+<a class="btn-wpp wpp-float" href="{{WPP}}" target="_blank" rel="noopener" data-wpp aria-label="Falar no WhatsApp">
+  <svg class="i-wpp"><use href="#i-wpp"/></svg>
+</a>
+
