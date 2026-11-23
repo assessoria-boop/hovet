@@ -22,12 +22,15 @@
   <link rel="dns-prefetch" href="https://www.clarity.ms" />
   <script>
     document.documentElement.className += ' js';
-    /* GTM e Clarity carregados na primeira interacao (mouse, toque, rolagem ou tecla), sem timer: fora do caminho do carregamento e do PageSpeed */
-    function _loadTags(){
-      if(window._tagsLoaded)return;window._tagsLoaded=1;
+    /* Clarity carregado na primeira interacao (mouse, toque, rolagem ou tecla), sem timer: fora do caminho do carregamento e do PageSpeed */
+    /* GTM no carregamento (23/11/2026): o GTM sai do carregamento adiado para nao perder o clique de quem toca no botao logo ao entrar; so o Clarity espera a primeira interacao */
       /* Google Tag Manager: o mesmo container da pagina atual */
       var GTM_ID = 'GTM-P7LVPBTR';
       if (GTM_ID) (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer',GTM_ID);
+    /* clique em qualquer link de WhatsApp vai para a fila do dataLayer (evento whatsapp_click), mesmo que o GTM ainda esteja carregando */
+    document.addEventListener('click',function(e){var a=e.target&&e.target.closest&&e.target.closest('a[href*="wa.me"],a[href*="api.whatsapp.com"]');if(!a)return;window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'whatsapp_click',wpp_botao:String(a.className||''),wpp_link:a.href});},true);
+    function _loadTags(){
+      if(window._tagsLoaded)return;window._tagsLoaded=1;
       /* Microsoft Clarity: y9fqqkk2zr (o mesmo da página anterior) */
       var CLARITY_ID = 'y9fqqkk2zr';
       if (CLARITY_ID) (function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);})(window,document,"clarity","script",CLARITY_ID);
